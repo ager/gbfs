@@ -1,0 +1,998 @@
+openapi: 3.0.2
+info:
+  title: General Bikeshare Feed Specification (GBFS)
+  description: Documentation for the General Bikeshare Feed Specification, a standardized data feed for bike share system availability.
+  version: 1.1.0
+  contact:
+    url: https://github.com/NABSA/gbfs
+  license:
+    name: Creative Commons Attribution 3.0 License
+  termsOfService: https://github.com/NABSA/gbfs
+
+servers:
+  - url: "https://api-core.bikeshare.ae/gbfs"
+  - url: "https://www.mibicitubici.gob.ar/opendata"
+  - url: "https://buenosaires.publicbikesystem.net/ube/gbfs/v1"
+  - url: "https://gbfs.movo.me/buenosaires"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_na"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_ka"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_la"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_ta"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_si"
+  - url: "https://monashbikeshare.com/opendata"
+  - url: "https://aru.publicbikesystem.net/ube/gbfs/v1"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_bj"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_ba"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_ct"
+  - url: "https://rec.publicbikesystem.net/ube/gbfs/v1"
+  - url: "https://poa.publicbikesystem.net/ube/gbfs/v1"
+  - url: "https://riodejaneiro.publicbikesystem.net/ube/gbfs/v1"
+  - url: "https://salvador.publicbikesystem.net/ube/gbfs/v1"
+  - url: "https://saopaulo.publicbikesystem.net/ube/gbfs/v1"
+  - url: "https://riviera.publicbikesystem.net/ube/gbfs/v1"
+  - url: "https://vilavelha.publicbikesystem.net/ube/gbfs/v1"
+  - url: "https://tor.publicbikesystem.net/ube/gbfs/v1"
+  - url: "https://api-core.bixi.com/gbfs"
+  - url: "https://gbfs.hopr.city/api/gbfs/6"
+  - url: "https://gbfs.hopr.city/api/gbfs/13"
+  - url: "https://vancouver-gbfs.smoove.pro/gbfs"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_ca"
+  - url: "https://hamilton.socialbicycles.com/opendata"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_ch"
+  - url: "https://santiago.publicbikesystem.net/ube/gbfs/v1"
+  - url: "https://gbfs.movo.me/vitacura"
+  - url: "https://gbfs.movo.me/bogota"
+  - url: "https://gbfs.movo.me/medellin"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_cy"
+  - url: "https://nicosia.publicbikesystem.net/ube/gbfs/v1"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_cz"
+  - url: "http://velonet.cz/opendata"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_cb"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_bf"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_bn"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_kg"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_fg"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_mr"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_ef"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_ff"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_de"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_ng"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_dk"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_lr"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_le"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_li"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_nb"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_sn"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_ds"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_ag"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_sz"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_ur"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_vn"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_wk"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_dw"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_ee"
+  - url: "https://barcelona.publicbikesystem.net/ube/gbfs/v1"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_bo"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_el"
+  - url: "https://eu.ftp.opendatasoft.com/star/gbfs"
+  - url: "https://valence.publicbikesystem.net/ube/gbfs/v1"
+  - url: "https://saint-etienne-gbfs.klervi.net/gbfs"
+  - url: "https://vannes-gbfs.klervi.net/gbfs"
+  - url: "https://avignon-gbfs.klervi.net/gbfs"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_bu"
+  - url: "http://gbfs.basis-pdn.bike/BCP"
+  - url: "http://gbfs.basis-pdn.bike/Hereford"
+  - url: "http://gbfs.basis-pdn.bike/London"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_eu"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_uc"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_gg"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_uk"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_wm"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_ub"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_ku"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_uu"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_gd"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_gs"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_ig"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_kc"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_cm"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_bc"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_cs"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_sb"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_cg"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_vu"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_zd"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_hr"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_br"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_cv"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_bi"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_ir"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_ic"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_hi"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_in"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_vi"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_bl"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_lv"
+  - url: "https://monaco.publicbikesystem.net/ube/gbfs/v1"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_mt"
+  - url: "https://guad.publicbikesystem.net/ube/gbfs/v1"
+  - url: "https://gbfs.movo.me/guadalajara"
+  - url: "https://www.cykl.nl/gbfs"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_nd"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_nl"
+  - url: "https://gbfs.urbansharing.com/bergenbysykkel.no"
+  - url: "https://gbfs.urbansharing.com/oslobysykkel.no"
+  - url: "https://gbfs.urbansharing.com/trondheimbysykkel.no"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_nz"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_bp"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_sp"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_jp"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_gm"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_gp"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_pv"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_pk"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_kw"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_kr"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_mk"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_pn"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_ps"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_op"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_lp"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_ln"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_km"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_pi"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_ep"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_pu"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_pb"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_rp"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_mw"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_rm"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_po"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_pw"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_pr"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_mp"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_ap"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_pg"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_tn"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_pt"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_vp"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_pl"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_sa"
+  - url: "https://gbfs.urbansharing.com/edinburghcyclehire.com"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_cn"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_as"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_ak"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_nk"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_ot"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_kv"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_nu"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_uv"
+  - url: "https://gbfs.bcycle.com/bcycle_arborbike"
+  - url: "https://gbfs.bcycle.com/bcycle_austin"
+  - url: "https://gbfs.bcycle.com/bcycle_aventura"
+  - url: "https://gbfs.bcycle.com/bcycle_battlecreek"
+  - url: "https://gbfs.baywheels.com/gbfs"
+  - url: "https://chat.publicbikesystem.net/ube/gbfs/v1"
+  - url: "https://gbfs.bcycle.com/bcycle_bikelnk"
+  - url: "https://kona.publicbikesystem.net/ube/gbfs/v1"
+  - url: "http://biketownpdx.socialbicycles.com/opendata"
+  - url: "https://hon.publicbikesystem.net/ube/gbfs/v1"
+  - url: "https://mds.bird.co/gbfs/chicago"
+  - url: "https://mds.bird.co/gbfs/louisville"
+  - url: "http://britebikes.socialbicycles.com/opendata"
+  - url: "https://www.bolt.miami/bolt2/bal/gbfs/en"
+  - url: "https://www.bolt.miami/bolt2/chi/gbfs"
+  - url: "https://www.bolt.miami/bolt2/la/gbfs"
+  - url: "https://www.bolt.miami/bolt2/lou/gbfs"
+  - url: "http://boise.greenbike.com/opendata"
+  - url: "https://gbfs.bcycle.com/bcycle_boulder"
+  - url: "http://santamonicabikeshare.com/opendata"
+  - url: "https://gbfs.bcycle.com/bcycle_broward"
+  - url: "https://gbfs.bcycle.com/bcycle_bublr"
+  - url: "https://gbfs.capitalbikeshare.com/gbfs"
+  - url: "https://gbfs.bcycle.com/bcycle_charlotte"
+  - url: "https://gbfs.bcycle.com/bcycle_cincyredbike"
+  - url: "https://gbfs.citibikenyc.com/gbfs"
+  - url: "https://gbfs.bcycle.com/bcycle_clarksville"
+  - url: "https://gbfs.bcycle.com/bcycle_clemson"
+  - url: "http://coast.socialbicycles.com/opendata"
+  - url: "https://gbfs.cogobikeshare.com/gbfs"
+  - url: "https://gbfs.bcycle.com/bcycle_columbiacounty"
+  - url: "https://gbfs.bcycle.com/bcycle_columbike"
+  - url: "https://gbfs.bcycle.com/bcycle_denver"
+  - url: "https://gbfs.bcycle.com/bcycle_desmoines"
+  - url: "https://gbfs.divvybikes.com/gbfs"
+  - url: "https://gbfs.bcycle.com/bcycle_elpaso"
+  - url: "https://gbfs.bcycle.com/bcycle_memphis"
+  - url: "https://gbfs.bcycle.com/bcycle_fortworth"
+  - url: "https://gbfs.bcycle.com/bcycle_greatrides"
+  - url: "https://gbfs.bcycle.com/bcycle_greenbikeslc"
+  - url: "https://gbfs.bcycle.com/bcycle_greenville"
+  - url: "https://grid.socialbicycles.com/opendata"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_pp"
+  - url: "https://gbfs.bcycle.com/bcycle_heartland"
+  - url: "https://gbfs.hopr.city/api/gbfs/3"
+  - url: "https://gbfs.hopr.city/api/gbfs/16"
+  - url: "https://gbfs.hopr.city/api/gbfs/10"
+  - url: "https://gbfs.hopr.city/api/gbfs/11"
+  - url: "https://gbfs.hopr.city/api/gbfs/12"
+  - url: "https://gbfs.hopr.city/api/gbfs/5"
+  - url: "https://gbfs.hopr.city/api/gbfs/8"
+  - url: "https://gbfs.bcycle.com/bcycle_houston"
+  - url: "https://gbfs.thehubway.com/gbfs"
+  - url: "https://gbfs.bcycle.com/bcycle_indego"
+  - url: "https://gbfs.bcycle.com/bcycle_pacersbikeshare"
+  - url: "https://gbfs.bcycle.com/bcycle_jacksoncounty"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_nj"
+  - url: "https://gbfs.uber.com/v1/atxb"
+  - url: "https://gbfs.uber.com/v1/atxs"
+  - url: "https://gbfs.uber.com/v1/balts"
+  - url: "https://gbfs.uber.com/v1/dcb"
+  - url: "https://gbfs.uber.com/v1/dcs"
+  - url: "https://gbfs.uber.com/v1/denb"
+  - url: "https://gbfs.uber.com/v1/laxb"
+  - url: "https://gbfs.uber.com/v1/laxs"
+  - url: "https://gbfs.uber.com/v1/nycb"
+  - url: "https://gbfs.uber.com/v1/sacb"
+  - url: "https://gbfs.uber.com/v1/sacs"
+  - url: "https://gbfs.uber.com/v1/sdb"
+  - url: "https://gbfs.uber.com/v1/sds"
+  - url: "https://gbfs.uber.com/v1/scb"
+  - url: "https://gbfs.uber.com/v1/seab"
+  - url: "https://gbfs.uber.com/v1/sfb"
+  - url: "https://gbfs.uber.com/v1/sfs"
+  - url: "https://gbfs.uber.com/v1/tpas"
+  - url: "https://gbfs.bcycle.com/bcycle_kc"
+  - url: "https://data.lime.bike/api/partners/v1/gbfs/arlington"
+  - url: "https://data.lime.bike/api/partners/v1/gbfs/baltimore"
+  - url: "https://data.lime.bike/api/partners/v1/gbfs/chicago"
+  - url: "https://data.lime.bike/api/partners/v1/gbfs/detroit"
+  - url: "https://data.lime.bike/api/partners/v1/gbfs/los_angeles"
+  - url: "https://data.lime.bike/api/partners/v1/gbfs/louisville"
+  - url: "https://data.lime.bike/api/partners/v1/gbfs/new_york"
+  - url: "https://data.lime.bike/api/partners/v1/gbfs/washington_dc"
+  - url: "https://gbfs.bcycle.com/bcycle_linkdayton"
+  - url: "https://lou.publicbikesystem.net/ube/gbfs/v1"
+  - url: "https://s3.amazonaws.com/lyft-lastmile-production-iad/lbs/dca"
+  - url: "https://s3.amazonaws.com/lyft-lastmile-production-iad/lbs/chi"
+  - url: "https://gbfs.bcycle.com/bcycle_madison"
+  - url: "https://gbfs.bcycle.com/bcycle_mcallen"
+  - url: "https://gbfs.bcycle.com/bcycle_lametro"
+  - url: "https://det.publicbikesystem.net/ube/gbfs/v1"
+  - url: "https://gbfs.bcycle.com/bcycle_nashville"
+  - url: "https://gbfs.niceridemn.com/gbfs"
+  - url: "https://gbfs.bcycle.com/bcycle_spokies"
+  - url: "https://gbfs.bcycle.com/bcycle_rapidcity"
+  - url: "https://reddybikeshare.socialbicycles.com/opendata"
+  - url: "https://relaybikeshare.socialbicycles.com/opendata"
+  - url: "https://gbfs.bcycle.com/bcycle_rtcbikeshare"
+  - url: "https://gbfs.bcycle.com/bcycle_sanantonio"
+  - url: "https://gbfs.bcycle.com/bcycle_catbike"
+  - url: "https://mds.bird.co/gbfs/platform-partner/sherpa/chicago"
+  - url: "https://gbfs.nextbike.net/maps/gbfs/v1/nextbike_wb"
+  - url: "https://gbfs.bcycle.com/bcycle_spartanburg"
+  - url: "https://web.spin.pm/api/gbfs/v1/chicago"
+  - url: "https://web.spin.pm/api/gbfs/v1/baltimore"
+  - url: "https://web.spin.pm/api/gbfs/v1/detroit/gbfs"
+  - url: "https://web.spin.pm/api/gbfs/v1/louisville/gbfs"
+  - url: "https://web.spin.pm/api/gbfs/v1/washington_dc/gbfs"
+  - url: "https://gbfs.bcycle.com/bcycle_startbike"
+  - url: "http://topekametrobikes.org/opendata"
+  - url: "https://tuc.publicbikesystem.net/ube/gbfs/v1"
+  - url: "http://ubike.virginia.edu/opendata"
+  - url: "https://asp.publicbikesystem.net/ube/gbfs/v1"
+  - url: "https://chicago-gbfs.getwheelsapp.com"
+  - url: "https://share.veoride.com/api/share/gbfs"
+
+
+paths:
+  /gbfs.json:
+    get:
+      operationId: index
+      summary: Auto-discovery file that links to all of the other files published by the system. This file is optional, but highly recommended.
+      responses:
+        '200':
+          description: Describes the entry point of the shared data.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/LastUpdatedProperty'
+                  - $ref: '#/components/schemas/TTLProperty'
+                  - $ref: '#/components/schemas/VersionProperty'
+                  - $ref: '#/components/schemas/IndexData'
+
+
+  /gbfs_versions.json:
+    get:
+      operationId: versions
+      summary: Lists all feed endpoints published according to versions of the GBFS documentation.
+      responses:
+        '200':
+          description: Each expression of a GBFS feed describes all of the versions that are available.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/LastUpdatedProperty'
+                  - $ref: '#/components/schemas/TTLProperty'
+                  - $ref: '#/components/schemas/VersionProperty'
+                  - $ref: '#/components/schemas/VersionsData'
+
+  /system_information.json:
+    get:
+      operationId: system_information
+      summary: Describes the system including System operator, System location, year implemented, URLs, contact info, time zone
+      responses:
+        '200':
+          description: Describes the system information.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/LastUpdatedProperty'
+                  - $ref: '#/components/schemas/TTLProperty'
+                  - $ref: '#/components/schemas/VersionProperty'
+                  - $ref: '#/components/schemas/SystemInformationData'
+
+  /station_information.json:
+    get:
+      operationId: station_information
+      summary: Mostly static list of all stations, their capacities and locations. Required of systems utilizing docks.
+      responses:
+        '200':
+          description: All stations included in station_information.json are considered public (e.g., can be shown on a map for public use). If there are private stations (such as Capital Bikeshare’s White House station), these should not be included here.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/LastUpdatedProperty'
+                  - $ref: '#/components/schemas/TTLProperty'
+                  - $ref: '#/components/schemas/VersionProperty'
+                  - $ref: '#/components/schemas/StationInformationData'
+  /station_status.json:
+    get:
+      operationId: station_status
+      summary: Number of available bikes and docks at each station and station availability. Required of systems utilizing docks.
+      responses:
+        '200':
+          description: Describes the capacity and rental availability of a station.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/LastUpdatedProperty'
+                  - $ref: '#/components/schemas/TTLProperty'
+                  - $ref: '#/components/schemas/VersionProperty'
+                  - $ref: '#/components/schemas/StationStatusData'
+  /free_bike_status.json:
+    get:
+      operationId: free_bike_status
+      summary: Describes bikes that are available for rent. Required of systems that don't utilize docks or offer bikes for rent outside of stations.
+      responses:
+        '200':
+          description: Describes bikes that are not at a station and are not currently in the middle of an active ride.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/LastUpdatedProperty'
+                  - $ref: '#/components/schemas/TTLProperty'
+                  - $ref: '#/components/schemas/VersionProperty'
+                  - $ref: '#/components/schemas/FreeBikeStatusData'
+  /system_hours.json:
+    get:
+      operationId: system_hours
+      summary: Describes the hours of operation for the system
+      responses:
+        '200':
+          description: Describes the system hours of operation.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/LastUpdatedProperty'
+                  - $ref: '#/components/schemas/TTLProperty'
+                  - $ref: '#/components/schemas/VersionProperty'
+                  - $ref: '#/components/schemas/SystemHoursData'
+  /system_calendar.json:
+    get:
+      operationId: system_calendar
+      summary: Describes the days of operation for the system
+      responses:
+        '200':
+          description: Describes the operating calendar for a system.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/LastUpdatedProperty'
+                  - $ref: '#/components/schemas/TTLProperty'
+                  - $ref: '#/components/schemas/VersionProperty'
+                  - $ref: '#/components/schemas/SystemCalendarData'
+  /system_regions.json:
+    get:
+      operationId: system_regions
+      summary: Describes the regions the system is broken up into
+      responses:
+        '200':
+          description: Describe regions for a system that is broken up by geographic or political region.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/LastUpdatedProperty'
+                  - $ref: '#/components/schemas/TTLProperty'
+                  - $ref: '#/components/schemas/VersionProperty'
+                  - $ref: '#/components/schemas/SystemRegionsData'
+  /system_pricing_plans.json:
+    get:
+      operationId: system_pricing_plans
+      summary: Describes the system pricing
+      responses:
+        '200':
+          description: Describes pricing for the system.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/LastUpdatedProperty'
+                  - $ref: '#/components/schemas/TTLProperty'
+                  - $ref: '#/components/schemas/VersionProperty'
+                  - $ref: '#/components/schemas/SystemPricingPlansData'
+  /system_alerts.json:
+    get:
+      operationId: system_alerts
+      summary: Describes current system alerts
+      responses:
+        '200':
+          description: >
+            This feed is intended to inform customers about changes to the system that do not fall within the normal system operations. For example, system closures due to weather would be listed here, but a system that only operated for part of the year would have that schedule listed in the system_calendar.json feed.
+            Obsolete alerts should be removed so the client application can safely present to the end user everything present in the feed.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/LastUpdatedProperty'
+                  - $ref: '#/components/schemas/TTLProperty'
+                  - $ref: '#/components/schemas/VersionProperty'
+                  - $ref: '#/components/schemas/SystemAlertsData'
+
+
+components:
+  schemas:
+    LastUpdatedProperty:
+      type: object
+      properties:
+        last_updated:
+          type: integer
+          description: Integer POSIX timestamp indicating the last time the data in this feed was updated
+    TTLProperty:
+      type: object
+      properties:
+        ttl:
+          type: integer
+          description: Integer representing the number of seconds before the data in this feed will be updated again (0 if the data should always be refreshed)
+    VersionProperty:
+      type: object
+      properties:
+        version:
+          type: string
+          description: String - GBFS version number to which the feed confirms, according to the versioning framework.
+
+    IndexData:
+      type: object
+      properties:
+        data:
+          type: object
+          additionalProperties:
+            type: object
+            description: The language that all of the contained files will be published in. This language must match the value in the system_information file
+            properties:
+              feeds:
+                type: array
+                description: An array of all of the feeds that are published by this auto-discovery file
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      description: Key identifying the type of feed this is (e.g. "system_information", "station_information")
+                    url:
+                      type: string
+                      description: Full URL for the feed
+    VersionsData:
+      type: object
+      properties:
+        data:
+          type: array
+          description: Contains one object, as defined below, for each of the available versions of a feed. The array must be sorted by increasing MAJOR and MINOR version number.
+          items:
+            type: object
+            properties:
+              version:
+                type: string
+                description: The semantic version of the feed in the form X.Y.
+              url:
+                type: string
+                description: URL of the corresponding gbfs.json endpoint.
+
+    SystemInformationData:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            system_id:
+              type: string
+              description: Identifier for this bike share system. This should be globally unique (even between different systems) - for example, bcycle_austin or biketown_pdx. It is up to the publisher of the feed to guarantee uniqueness. This value is intended to remain the same over the life of the system.
+            language:
+              type: string
+              description: The language that will be used throughout the rest of the files. It must match the value in the gbfs.json file.
+            name:
+              type: string
+              description: Name of the system to be displayed to customers.
+            short_name:
+              type: string
+              description: Optional abbreviation for a system.
+              nullable: true
+            operator:
+              type: string
+              description: Name of the operator.
+              nullable: true
+            url:
+              type: string
+              description: The URL of the bike share system.
+              nullable: true
+            purchase_url:
+              type: string
+              description: URL where a customer can purchase a membership.
+              nullable: true
+            start_date:
+              type: string
+              description: Date that the system began operations.
+              nullable: true
+            phone_number:
+              type: string
+              description: A single voice telephone number for the specified system that presents the telephone number as typical for the system's service area. It can and should contain punctuation marks to group the digits of the number. Dialable text (for example, Capital Bikeshare’s "877-430-BIKE") is permitted, but the field must not contain any other descriptive text.
+              nullable: true
+            email:
+              type: string
+              description: Email address actively monitored by the operator’s customer service department. This email address should be a direct contact point where riders can reach a customer service representative.
+              nullable: true
+            feed_contact_email:
+              type: string
+              description: A single contact email address for consumers of this feed to report technical issues.
+              nullable: true
+            timezone:
+              type: string
+              description: The time zone where the system is located.
+            license_id:
+              type: string
+              description: Required if the dataset is provided under a standard license. An identifier for a standard license from the SPDX License List. Provide license_id rather than license_url if the license is included in the SPDX License List. See the GBFS wiki for a comparison of a subset of standard licenses. If the license_id or license_url fields are blank or omitted, this indicates that the feed is provided under the Creative Commons Universal Public Domain Dedication.
+            license_url:
+              type: string
+              description: >
+                Current version: A fully qualified URL of a page that defines the license terms for the GBFS data for this system, as well as any other license terms the system would like to define (including the use of corporate trademarks, etc).
+                Beta (v2.0-RC): Required if the dataset is provided under a customized license. A fully qualified URL of a page that defines the license terms for the GBFS data for this system. Do not specify a license_url if license_id is specified. If the license_id or license_url fields are blank or omitted, this indicates that the feed is provided under the Creative Commons Universal Public Domain Dedication.
+            attribution_organization_name:
+              type: string
+              description: If the feed license requires attribution, name of the organization to which attribution should be provided.
+            attribution_url:
+              type: string
+              description: URL of the organization to which attribution should be provided.
+            rental_apps:
+              type: object
+              description: Contains rental app information in the android and ios JSON objects.
+              properties:
+                android:
+                  type: object
+                  description: Contains rental app download and app discovery information for the Android platform in the store_uri and discovery_uri fields. See examples of how to use these fields and supported analytics.
+                  properties:
+                    store_uri:
+                      type: string
+                      description: >
+                        URI where the rental Android app can be downloaded from. Typically this will be a URI to an app store such as Google Play. If the URI points to an app store such as Google Play, the URI should follow Android best practices so the viewing app can directly open the URI to the native app store app instead of a website.
+                        If a rental_uris.android field is populated then this field is required, otherwise it is optional.
+                        See the Analytics section for how viewing apps can report the origin of the deep link to rental apps.
+                        Example value: https://play.google.com/store/apps/details?id=com.abcrental.android
+                    discovery_uri:
+                      type: string
+                      description: >
+                        URI that can be used to discover if the rental Android app is installed on the device (e.g., using PackageManager.queryIntentActivities()). This intent is used by viewing apps prioritize rental apps for a particular user based on whether they already have a particular rental app installed.
+                        This field is required if a rental_uris.android field is populated, otherwise it is optional.
+                        Example value: com.abcrental.android://
+                ios:
+                  type: object
+                  description: Contains rental information for the iOS platform in the store_uri and discovery_uri fields. See examples of how to use these fields and supported analytics.
+                  properties:
+                    store_uri:
+                      type: string
+                      description: >
+                        URI where the rental iOS app can be downloaded from. Typically this will be a URI to an app store such as the Apple App Store. If the URI points to an app store such as the Apple App Store, the URI should follow iOS best practices so the viewing app can directly open the URI to the native app store app instead of a website.
+                        If a rental_uris.ios field is populated then this field is required, otherwise it is optional.
+                        See the Analytics section for how viewing apps can report the origin of the deep link to rental apps.
+                        Example value: https://apps.apple.com/app/apple-store/id123456789
+                    discovery_uri:
+                      type: string
+                      description: >
+                        URI that can be used to discover if the rental iOS app is installed on the device (e.g., using UIApplication canOpenURL:). This intent is used by viewing apps prioritize rental apps for a particular user based on whether they already have a particular rental app installed.
+                        This field is required if a rental_uris.ios field is populated, otherwise it is optional.
+                        Example value: com.abcrental.ios://
+
+
+    StationInformationData:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            stations:
+              type: array
+              description: Array that contains one object per station as defined below.
+              items:
+                type: object
+                properties:
+                  station_id:
+                    type: string
+                    description: Identifier of a station.
+                  name:
+                    type: string
+                    description: Public name of the station.
+                  short_name:
+                    type: string
+                    description: Short name or other type of identifier.
+                  lat:
+                    type: number
+                    description: The latitude of station.
+                  lon:
+                    type: number
+                    description: The longitude of station.
+                  address:
+                    type: string
+                    description: Address (street number and name) where station is located. This must be a valid address, not a free-form text description (see "cross_street" below).
+                  cross_street:
+                    type: string
+                    description: Cross street or landmark where the station is located.
+                  region_id:
+                    type: string
+                    description: Identifier of the region where station is located. See system_regions.json.
+                  post_code:
+                    type: string
+                    description: Postal code where station is located.
+                  rental_methods:
+                    type: string
+                    description: Payment methods accepted at this station.
+                    enum:
+                      - 'KEY'
+                      - 'CREDITCARD'
+                      - 'PAYPASS'
+                      - 'APPLEPAY'
+                      - 'ANDROIDPAY'
+                      - 'TRANSITCARD'
+                      - 'ACCOUNTNUMBER'
+                      - 'PHONE'
+                  capacity:
+                    type: integer
+                    description: Number of total docking points installed at this station, both available and unavailable.
+                  rental_uris:
+                    $ref: '#/components/schemas/RentalUris'
+
+
+    StationStatusData:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            stations:
+              type: array
+              items:
+                type: object
+                properties:
+                  station_id:
+                    type: string
+                    description: Identifier of a station see station_information.json.
+                  num_bikes_available:
+                    type: integer
+                    description: Number of bikes available for rental. Number of functional bikes physically at the station. To know if the bikes are available for rental, see is_renting.
+                  num_bikes_disabled:
+                    type: integer
+                    description: >
+                      Number of disabled bikes at the station. Beta (v2.0-RC): Vendors who do not want to publicize the number of disabled bikes or docks in their system can opt to omit station capacity (in station_information), num_bikes_disabled and num_docks_disabled. If station capacity is published then broken docks/bikes can be inferred (though not specifically whether the decreased capacity is a broken bike or dock).
+                  num_docks_available:
+                    type: integer
+                    description: >
+                      Current version: Number of docks accepting bike returns.
+                      Beta v2.0-RC: Required except for stations that have unlimited docking capacity (e.g. virtual stations). Number of functional docks physically at the station. To know if the docks are accepting bike returns, see is_returning.
+                  num_docks_disabled:
+                    type: integer
+                    description: Number of empty but disabled dock points at the station.
+                  is_installed:
+                    type: integer
+                    description: >
+                      Is the station currently on the street?
+                      1 - Station is installed on the street.
+                      0 - Station is not installed on the street.
+                  is_renting:
+                    type: integer
+                    description: >
+                      Is the station currently renting bikes?
+                      1 - Station is renting bikes. Even if the station is empty, if it is set to allow rentals this value should be 1.
+                      0 - Station is not renting bikes.
+                  is_returning:
+                    type: integer
+                    description: >
+                      Is the station accepting bike returns?
+                      1 - Station is accepting bike returns. If a station is full but would allow a return if it was not full, then this value should be 1.
+                      0 - Station is not accepting bike returns.
+                  last_reported:
+                    type: integer
+                    description: The last time this station reported its status.
+
+    FreeBikeStatusData:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            bikes:
+              type: array
+              items:
+                type: object
+                properties:
+                  bike_id:
+                    type: string
+                    description: >
+                      Identifier of a bike. Beta (v2.0-RC): Identifier of a bike, rotated to a random string, at minimum, after each trip to protect privacy. Note: Persistent bike_id, published publicly, could pose a threat to individual traveler privacy.
+                  lat:
+                    type: number
+                    description: Latitude of the bike.
+                  lon:
+                    type: number
+                    description: Longitude of the bike.
+                  is_reserved:
+                    type: integer
+                    description: >
+                      Is the bike currently reserved?
+                      1 - Bike is currently reserved.
+                      0 - Bike is not currently reserved.
+                  is_disabled:
+                    type: integer
+                    description: >
+                      Is the bike currently disabled (broken)?
+                      1 - Bike is currently disabled.
+                      0 - Bike is not currently disabled.
+                  rental_uris:
+                    $ref: '#/components/schemas/RentalUris'
+
+    SystemHoursData:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            rental_hours:
+              type: array
+              description: Array of objects as defined below. The array must contain a minimum of one object identifying hours for every day of the week or a maximum of two for each day of the week objects ( one for each user type).
+              items:
+                type: object
+                properties:
+                  user_types:
+                    type: array
+                    description: An array of member and/or nonmember value(s). This indicates that this set of rental hours applies to either members or non-members only.
+                    items:
+                      type: string
+                      enum:
+                        - 'member'
+                        - 'nonmember'
+                  days:
+                    type: array
+                    description: An array of abbreviations (first 3 letters) of English names of the days of the week for which this object applies (e.g. ["mon", "tue", "wed", "thu", "fri", "sat, "sun"]). Rental hours must not be defined more than once for each day and user type.
+                    items:
+                      type: string
+                      enum:
+                        - 'mon'
+                        - 'tue'
+                        - 'wed'
+                        - 'thu'
+                        - 'fri'
+                        - 'sat'
+                        - 'sun'
+                  start_time:
+                    type: string
+                    description: Start time for the hours of operation of the system in the time zone indicated in system_information.json.
+                  end_time:
+                    type: string
+                    description: End time for the hours of operation of the system in the time zone indicated in system_information.json.
+
+    SystemCalendarData:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            calendars:
+              type: array
+              description: Array of objects describing the system operational calendar. A minimum of one calendar object is required. If start and end dates are the same every year, then start_year and end_year should be omitted.
+              items:
+                type: object
+                properties:
+                  start_month:
+                    type: integer
+                    description: Starting month for the system operations (1-`12).
+                    minimum: 1
+                    maximum: 12
+                  start_day:
+                    type: integer
+                    description: Starting date for the system operations (1-31).
+                    minimum: 1
+                    maximum: 31
+                  start_year:
+                    type: integer
+                    description: Starting year for the system operations.
+                    minimum: 1
+                    maximum: 9999
+                  end_month:
+                    type: integer
+                    description: Ending month for the system operations (1-`12).
+                    minimum: 1
+                    maximum: 12
+                  end_day:
+                    type: integer
+                    description: Ending date for the system operations (1-31).
+                    minimum: 1
+                    maximum: 31
+                  end_year:
+                    type: integer
+                    description: Ending year for the system operations.
+                    minimum: 1
+                    maximum: 9999
+
+    SystemRegionsData:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            regions:
+              type: array
+              description: Array of objects as defined below.
+              items:
+                type: object
+                properties:
+                  region_id:
+                    type: string
+                    description: Identifier for the region.
+                  name:
+                    type: string
+                    description: Public name for this region.
+
+
+    SystemPricingPlansData:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            plans:
+              type: array
+              description: Array of objects as defined below.
+              items:
+                type: object
+                properties:
+                  plan_id:
+                    type: string
+                    description: Identifier for a pricing plan in the system.
+                  url:
+                    type: string
+                    description: URL where the customer can learn more about this pricing plan.
+                  name:
+                    type: string
+                    description: Name of this pricing plan.
+                  currency:
+                    type: string
+                    description: >
+                      Currency used to pay the fare.
+                      This pricing is in ISO 4217 code: http://en.wikipedia.org/wiki/ISO_4217
+                      (e.g. CAD for Canadian dollars, EUR for euros, or JPY for Japanese yen.)
+                  price:
+                    type: number
+                    description: Fare price, in the unit specified by currency. If String, must be in decimal monetary value.
+                  is_taxable:
+                    type: integer
+                    description: >
+                      Will additional tax be added to the base price?
+                      1 - Yes.
+                      0 - No.
+                      0 may be used to indicate that tax is not charged or that tax is included in the base price.
+                  description:
+                    type: string
+                    description: Customer-readable description of the pricing plan. This should include the duration, price, conditions, etc. that the publisher would like users to see.
+
+
+    SystemAlertsData:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            alerts:
+              type: array
+              description: Array of objects each indicating a system alert as defined below.
+              items:
+                type: object
+                properties:
+                  alert_id:
+                    type: string
+                    description: Identifier for this alert.
+                  type:
+                    type: string
+                    enum:
+                      - 'SYSTEM_CLOSURE'
+                      - 'STATION_CLOSURE'
+                      - 'STATION_MOVE'
+                      - 'OTHER'
+                  times:
+                    type: array
+                    description: Array of objects with the fields start and end indicating when the alert is in effect (e.g. when the system or station is actually closed, or when it is scheduled to be moved).
+                    items:
+                      type: object
+                      properties:
+                        start:
+                          type: integer
+                          description: Start time of the alert.
+                        end:
+                          type: integer
+                          description: End time of the alert. If there is currently no end time planned for the alert, this can be omitted.
+                  station_ids:
+                    type: array
+                    description: If this is an alert that affects one or more stations, include their ID(s). Otherwise omit this field. If both station_id and region_id are omitted, this alert affects the entire system.
+                    items:
+                      type: string
+                  region_ids:
+                    type: array
+                    description: If this system has regions, and if this alert only affects certain regions, include their ID(s). Otherwise, omit this field. If both station_ids and region_ids are omitted, this alert affects the entire system.
+                    items:
+                      type: string
+                  url:
+                    type: string
+                    description: URL where the customer can learn more information about this alert.
+                  summary:
+                    type: string
+                    description: A short summary of this alert to be displayed to the customer.
+                  description:
+                    type: string
+                    description: Detailed description of the alert.
+                  last_updated:
+                    type: integer
+                    description: Indicates the last time the info for the alert was updated.
+
+    RentalUris:
+      type: object
+      description: >
+        Contains rental URIs for Android, iOS, and web in the android, ios, and web fields. See examples of how to use these fields and supported analytics.
+        This URI should be a deep link specific to a station or bike, and should not be a general rental page that includes information for more than one station or bike. The deep link should take users directly to this station or bike, without any prompts, interstitial pages, or logins. Make sure that users can see this station or bike even if they never previously opened the application.
+        See the Analytics section for how viewing apps can report the origin of the deep link to rental apps.
+        Note that the URI does not necessarily include the station_id or bike_id - other identifiers can be used by the rental app within the URL to uniquely identify this station or bike.
+      properties:
+        android:
+          type: string
+          description: >
+            URI that can be passed to an Android app with an android.intent.action.VIEW Android intent to support Android Deep Links (https://developer.android.com/training/app-links/deep-linking). Please use Android App Links (https://developer.android.com/training/app-links) if possible so viewing apps don’t need to manually manage the redirect of the user to the app store if the user doesn’t have the application installed.
+            If this field is empty, it means deep linking isn’t supported in the native Android rental app.
+            Android App Links example value: https://www.abc.com/app?sid=1234567890&platform=android
+            Deep Link (without App Links) example value: com.abcrental.android://open.abc.app/app?sid=1234567890
+        ios:
+          type: string
+          description: >
+            URI that can be used on iOS to launch the rental app for this station or bike. More information on this iOS feature can be found here. Please use iOS Universal Links (https://developer.apple.com/ios/universal-links/) if possible so viewing apps don’t need to manually manage the redirect of the user to the app store if the user doesn’t have the application installed.
+            If this field is empty, it means deep linking isn’t supported in the native iOS rental app.
+            iOS Universal Links example value: https://www.abc.com/app?sid=1234567890&platform=ios
+            Deep Link (without Universal Links) example value: com.abcrental.ios://open.abc.app/app?sid=1234567890
+        web:
+          type: string
+          description: >
+            URL that can be used by a web browser to show more information about renting a vehicle at this station or bike.
+            If this field is empty, it means deep linking isn’t supported for web browsers.
+            Example value: https://www.abc.com/app?sid=1234567890

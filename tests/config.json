@@ -1,0 +1,5 @@
+{
+  "ABS_PATH_TO_API_SPEC": "../gbfs.yaml",
+  "API_URL": "{YOUR_GBFS_ENDPOINT}"
+}
+
